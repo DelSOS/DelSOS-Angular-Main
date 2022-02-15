@@ -39,21 +39,23 @@ export class ShopperProfileComponent implements OnInit {
   }
 
 
-  deliveries: any[] = [
-    {
-      name: "del1",
-      desc: " Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
-      date: "20/12/2021",
-      status : "arrived"
-    },
-    {
-      name: "del2",
-      desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
-      date: "08/10/2021",
-      status : "not_picked_up"
-    }
-  ]
-  collectionSize = this.deliveries.length;
+  // deliveries: any[] = [
+  //   {
+  //     name: "del1",
+  //     desc: " Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+  //     date: "20/12/2021",
+  //     status : "arrived"
+  //   },
+  //   {
+  //     name: "del2",
+  //     desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+  //     date: "08/10/2021",
+  //     status : "not_picked_up"
+  //   }
+  // ]
+  deliveries;
+
+  collectionSize:Number = 0;
   // user;
   constructor(private location: Location, private toastr: ToastrService,
     private signinService : SigninService,
@@ -84,8 +86,10 @@ export class ShopperProfileComponent implements OnInit {
   }
 
   getDeliveries(limit, skip) {
-    this.shopperProfileService.getDeliveries(limit,skip).subscribe((deliveries) => {
-      console.log(deliveries)
+    this.shopperProfileService.getDeliveries(limit,skip).subscribe(
+      (deliveries) => {
+        this.deliveries = deliveries;
+        this.collectionSize = this.deliveries.length
     },
       (error) => {
       
