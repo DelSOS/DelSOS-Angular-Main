@@ -31,7 +31,7 @@ export class StoreProfileComponent implements OnInit {
 
   passwordData = {
     "newPassword": '',
-    "currentPassword": '',
+    "oldPassword": '',
     "confirmPassword": '',
   }
 
@@ -144,7 +144,7 @@ export class StoreProfileComponent implements OnInit {
         description,
         destination,
         height,
-        priority: parseInt(priority)-1,
+        priority: parseInt(priority),
         source,
         weight,
         width,
