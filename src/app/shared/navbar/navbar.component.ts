@@ -51,7 +51,7 @@ export class NavbarComponent implements OnInit {
         return this.signinService.isAuthenticated()
     }
     logout() {
-        this.signinService.logout()
+        this.signinService.logout() 
     }
     isDocumentation() {
         var titlee = this.location.prepareExternalUrl(this.location.path());
